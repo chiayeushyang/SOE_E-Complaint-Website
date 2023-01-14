@@ -218,8 +218,8 @@ include 'check_session.php';
 
                             extract($row_user_active);
                             echo "<div class='accordion-body row px-4 justify-content-center mt-2'>";
-                            echo "<div class='col-1 p-3 border bg-light me-2 rounded text-center'> $index </div>";
-                            echo "<div class='col-10 p-3 border bg-light rounded'> $active_title </div>";
+                            echo "<div class='col-1 p-3 border bg-info me-2 rounded text-center'> $index </div>";
+                            echo "<div class='col-10 p-3 border bg-info rounded'> $active_title </div>";
                             echo " </div>";
                             $index++;
                         } ?>
@@ -240,8 +240,8 @@ include 'check_session.php';
 
                             extract($row_user_KIV);
                             echo "<div class='accordion-body row px-4 justify-content-center mt-2'>";
-                            echo "<div class='col-1 p-3 border bg-light me-2 rounded text-center'> $index </div>";
-                            echo "<div class='col-10 p-3 border bg-light rounded'> $KIV_title </div>";
+                            echo "<div class='col-1 p-3 border bg-warning me-2 rounded text-center'> $index </div>";
+                            echo "<div class='col-10 p-3 border bg-warning rounded'> $KIV_title </div>";
                             echo " </div>";
                             $index++;
                         } ?>

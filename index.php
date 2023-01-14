@@ -132,7 +132,7 @@ session_start();
 
     <main class="form-signin w-100 m-auto px-3 py-5 rounded">
         <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
-            <i class="fa-solid fa-circle-exclamation fa-xl fs-1 mb-4" width="72" height="57"></i>
+            <i class="fa-solid fa-circle-exclamation fa-xl fs-1 mb-4 text-white" width="72" height="57"></i>
             <h1 class="h3 mb-3 fw-normal fw-bold">Please sign in</h1>
 
             <div class="form-floating">

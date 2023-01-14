@@ -55,7 +55,9 @@ include 'check_session.php';
                     echo "<div class='alert alert-success'>Record with <b class='fs-2'> ProductID : $id </b> updated.</div>";
                 } else if ($message == "update_success") {
                     echo "<div class='alert alert-success'>Record was updated.</div>";
-                } else if ($message == "no_file_found") { // if it was redirected from delete.php
+                } else if ($message == "create_success") {
+                    echo "<div class='alert alert-success'>Record was created.</div>";
+                }else if ($message == "no_file_found") { // if it was redirected from delete.php
                     echo "<div class='alert alert-danger'>No file uploaded for this complaints.</div>";
                 } else if ($message == "deleted") { // if it was redirected from delete.php
                     echo "<div class='alert alert-success'>Record was deleted.</div>";
@@ -89,7 +91,7 @@ include 'check_session.php';
                 //creating our table heading
                 echo "<tr>";
                 echo "<th>Title</th>";
-                echo "<th>Status</th>";
+                echo "<th class='text-center'>Status</th>";
                 echo "<th>Action</th>";
 
                 // retrieve our table contents
@@ -101,7 +103,7 @@ include 'check_session.php';
                     // creating new table row per record
                     echo "<tr>";
                     echo "<td>{$title}</td>";
-                    echo "<td style='width: 15%'>{$status}</td>";
+                    echo "<td style='width: 10%' class='text-center'><img src='image/$status'alt='Image not found' width='50px'></td>";
                     echo "<td style='width: 35%'>";
                     // read one record
                     echo "<div>";

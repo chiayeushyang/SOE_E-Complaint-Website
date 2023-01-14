@@ -57,7 +57,7 @@ include 'check_session.php';
             // delete message prompt will be here
 
             // select all data
-            $query = "SELECT userID, username, email, role, register_date FROM users ORDER BY userID ASC";
+            $query = "SELECT userID, username, email, role, register_date FROM users ORDER BY userID";
             $stmt = $con->prepare($query);
             $stmt->execute();
 
@@ -70,14 +70,15 @@ include 'check_session.php';
             //check if more than 0 record found
             if ($num > 0) {
                 echo "<div class='table-responsive'>";
-                echo "<table class='table table-hover table-bordered align-middle'>"; //start table
+                echo "<table class='table table-hover table-bordered align-middle shadow m-5 bg-body rounded'>"; //start table
                 //creating our table heading
                 echo "<tr>";
-                echo "<th>userID</th>";
+                echo "<th class='text-center'>userID</th>";
                 echo "<th>Username</th>";
                 echo "<th>Email</th>";
                 echo "<th>Role</th>";
                 echo "<th>Register Date</th>";
+                echo "<th>Action</th>";
                 echo "</tr>";
 
                 // retrieve our table contents
@@ -87,22 +88,32 @@ include 'check_session.php';
                     extract($row);
                     // creating new table row per record
                     echo "<tr>";
-                    echo "<td>{$userID}</td>";
+                    echo "<td class='fw-bold text-center'>{$userID}</td>";
                     // echo "<td>{$password}</td>";
                     echo "<td>{$username}</td>";
                     echo "<td>{$email}</td>";
-                    echo "<td>{$role}</td>";
+                    echo "<td class='align-items-center'>";
+                    if ($role == "Helpdesk"){
+                        echo "<p class='bg-success text-center rounded-pill text-light p-1 mb-0'>$role</p>";
+                    } else if ($role == "User") {
+                        echo "<p class='bg-warning text-center rounded-pill text-light p-1 mb-0'>$role</p>";
+                    } else if ($role == "Admin") {
+                        echo "<p class='bg-danger text-center rounded-pill text-light p-1 mb-0'>$role</p>";
+                    } else {
+                        echo "<p class='bg-light text-center rounded-pill text-black p-1 mb-0'>$role</p>";
+                    }
+                    echo "</td>";
                     echo "<td>{$register_date}</td>";
 
                     echo "<td>";
 
-                    echo "<div class='row'>";
+                    echo "<div class='d-lg-flex d-block text-center'>";
 
                     // we will use this links on next part of this post
-                    echo "<a href='admin_users_update.php?id={$userID}' class='btn btn-primary col-11 col-lg m-auto me-lg-1 mt-2 mt-lg-0'>Edit</a>";
+                    echo "<a href='admin_users_update.php?id={$userID}' class='col-11 col-lg me-1 me-lg-2 me-0 text-center'><i class='fa-solid fa-pen-to-square fs-2 text-warning'></i></a>";
 
                     // we will use this links on next part of this post
-                    echo "<a href='#' onclick='delete_customer({$userID});' class='btn btn-danger col-11 col-lg m-auto mt-2 mt-xl-0'>Delete</a>";
+                    echo "<a href='#' onclick='delete_customer({$userID});' class='col-11 col-lg me-1 me-lg-0 text-center'><i class='fa-solid fa-trash-can fs-2 text-danger mt-3 mt-lg-0'></i></a>";
                     echo "</div>";
                     echo "</td>";
                     echo "</tr>";

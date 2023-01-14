@@ -9,8 +9,7 @@ body {
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: rgba(171, 77, 77, 0.32);
-
+  background: linear-gradient(to right,#787fed,#a7488c);
 }
 
 main {

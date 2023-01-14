@@ -105,7 +105,7 @@ include 'check_session.php';
                     echo "<tr>";
                     echo "<th>Title</th>";
                     echo "<th>Complaint Date</th>";
-                    echo "<th>Status</th>";
+                    echo "<th class='text-center'>Status</th>";
                     echo "<th>Action</th>";
 
                     // retrieve our table contents
@@ -118,7 +118,7 @@ include 'check_session.php';
                         echo "<tr>";
                         echo "<td>{$title}</td>";
                         echo "<td>{$complaint_date}</td>";
-                        echo "<td style='width: 15%'>{$status}</td>";
+                        echo "<td style='width: 10%' class='text-center'><img src='image/$status'alt='Image not found' width='50px'></td>";
                         echo "<td style='width: 35%'>";
                         // read one record
                         echo "<div class='d-flex align-items-center'>";

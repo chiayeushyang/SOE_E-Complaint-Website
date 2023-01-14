@@ -177,7 +177,7 @@ include 'check_session.php';
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
                         <button class="accordion-button collapsed fs-4 fw-semibold text-black text-opacity-75" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            Pending & New<?php echo "<b class='w-bold ms-4'>". (intval($pending_complaint) + intval($new_complaint)). "</b>" ?>
+                            Pending & New<?php echo "<b class='ms-4'>". (intval($pending_complaint) + intval($new_complaint)). "</b>" ?>
                         </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -209,8 +209,8 @@ include 'check_session.php';
 
                             extract($row_user_active);
                             echo "<div class='accordion-body row px-4 justify-content-center mt-2'>";
-                            echo "<div class='col-1 p-3 border bg-light me-2 rounded text-center'> $index </div>";
-                            echo "<div class='col-10 p-3 border bg-light rounded'> $active_title </div>";
+                            echo "<div class='col-1 p-3 border bg-info me-2 rounded text-center'> $index </div>";
+                            echo "<div class='col-10 p-3 border bg-info rounded'> $active_title </div>";
                             echo " </div>";
                             $index++;
                         } ?>
@@ -231,8 +231,8 @@ include 'check_session.php';
 
                             extract($row_user_KIV);
                             echo "<div class='accordion-body row px-4 justify-content-center mt-2'>";
-                            echo "<div class='col-1 p-3 border bg-light me-2 rounded text-center'> $index </div>";
-                            echo "<div class='col-10 p-3 border bg-light rounded'> $KIV_title </div>";
+                            echo "<div class='col-1 p-3 border bg-warning me-2 rounded text-center'> $index </div>";
+                            echo "<div class='col-10 p-3 border bg-warning rounded'> $KIV_title </div>";
                             echo " </div>";
                             $index++;
                         } ?>

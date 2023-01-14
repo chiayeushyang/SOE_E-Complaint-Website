@@ -19,7 +19,7 @@ ob_start();
 <body>
     <!-- NAVBAR -->
     <?php
-    include "navbar.php";
+    include "admin_navbar.php";
     ?>
     <!-- NAVBAR END -->
     <main>
@@ -63,7 +63,7 @@ ob_start();
                 <?php
                 // check if form was submitted
                 if ($_POST) {
-
+                    $old_password = $_POST['old_password'];
                     $new_password = $_POST['new_password'];
                     $confirm_password = $_POST['confirm_password'];
                     $email = $_POST['email'];
@@ -82,7 +82,15 @@ ob_start();
                         $validation = false;
                     }
 
-                    if ($confirm_password !== $new_password) {
+                    if ($old_password != "" && md5($old_password) != $row['password']) {
+                        $file_upload_error_messages .= "<div class='alert alert-danger'>Please enter corret password</div>";
+                        $validation = false;
+                    } else if ($old_password == "" && $new_password == "" && $confirm_password == "") {
+                        $pass = $row['password'];
+                    } else if (!preg_match("/[0-9]/", $new_password) || !preg_match("/[a-z]/", $new_password) || !preg_match("/[A-Z]/", $new_password) || strlen($new_password) < 8) {
+                        $file_upload_error_messages .= "<div class='alert alert-danger'>Please enter new password with at least <br> - 1 capital letter <br> - 1 small letter <br> - 1 integer <br> - more than 8 character</div>";
+                        $validation = false;
+                    }else if ($confirm_password !== $new_password) {
                         $file_upload_error_messages .= "<div class='alert alert-danger'>Please enter valid confirm password</div>";
                         $validation = false;
                     } else if ($new_password == "" && $confirm_password == "") {
@@ -135,6 +143,10 @@ ob_start();
                 <!--we have our html form here where new record information can be updated-->
                 <form action="<?php echo $_SERVER["PHP_SELF"] . "?id={$id}"; ?>" method="post" enctype="multipart/form-data">
                     <table class='table table-hover table-responsive table-bordered'>
+                        <tr>
+                            <td>Old Password</td>
+                            <td><input type='password' name='old_password' placeholder="Enter old password" class='form-control' /></td>
+                        </tr>
                         <tr>
                             <td>New Password</td>
                             <td><input type='password' name='new_password' placeholder="Enter new password" class='form-control' /></td>
